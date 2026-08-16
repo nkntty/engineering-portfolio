@@ -15,7 +15,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const project = getProject(params.slug);
+  const project = projects.find((project) => project.slug === params.slug);
   if (!project) notFound();
 
   return (

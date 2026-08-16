@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getProject  } from "../lib/projects";
+import { projects } from "../lib/projects";
 
 export default function Home() {
   return (
