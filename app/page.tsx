@@ -13,8 +13,8 @@ export default function Home() {
           I focus on understanding the problem first, making deliberate engineering trade-offs, and measuring the impact of what I build.
         </p>
         <div className="mt-8 flex gap-4 text-sm">
-          <a href="https://github.com/YOUR_GITHUB" target="_blank" className="rounded-full border border-zinc-700 px-5 py-2.5 hover:border-zinc-500">GitHub</a>
-          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" className="rounded-full border border-zinc-700 px-5 py-2.5 hover:border-zinc-500">LinkedIn</a>
+          <a href="https://github.com/nkntty" target="_blank" className="rounded-full border border-zinc-700 px-5 py-2.5 hover:border-zinc-500">GitHub</a>
+          <a href="https://www.linkedin.com/in/tatsuya-nakano-344614208/" target="_blank" className="rounded-full border border-zinc-700 px-5 py-2.5 hover:border-zinc-500">LinkedIn</a>
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6 py-20">
           <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Contact</p>
           <h2 className="mt-3 text-3xl font-semibold">Let’s build something useful.</h2>
-          <p className="mt-5 text-zinc-400">YOUR_EMAIL@example.com</p>
+          <p className="mt-5 text-zinc-400">nakatatsu0719@gmailc.com</p>
         </div>
       </section>
     </main>
