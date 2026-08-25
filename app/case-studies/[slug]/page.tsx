@@ -147,6 +147,16 @@ export default function CaseStudyPage({
             <p>{project.businessImpact}</p>
           </Section>
 
+          {project.futureFeatures && project.futureFeatures.length > 0 && (
+  <Section title="Future Roadmap">
+    <ul className="list-disc space-y-3 pl-5 marker:text-zinc-400">
+      {project.futureFeatures.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  </Section>
+)}
+
           <Section title="What I Learned">
             <p>{project.lessons}</p>
           </Section>

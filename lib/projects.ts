@@ -14,6 +14,7 @@ export type Project = {
   results: string[];
   businessImpact: string;
   lessons: string;
+  futureFeatures?: string[];
 };
 
 export const projects: Project[] = [
@@ -151,6 +152,87 @@ export const projects: Project[] = [
     lessons:
       "The competition reinforced the importance of validation strategy, feature engineering, regularization, and experimentation. I learned that improving generalization often requires understanding where a model gains signal and where complexity introduces overfitting, rather than simply increasing model complexity.",
   },
+
+
+
+  {
+  slug: "chairtime-attendance-management",
+
+  title: "ChairTime — Client Software Project",
+
+  headline:
+    "Designing an attendance management system from a real client requirement",
+
+  summary:
+    "An in-development attendance management application for a small business in Japan. I translated an initial client request into an MVP covering employee clock-in/out, monthly attendance tracking, overtime visibility, administrator oversight, payroll-supporting summaries, and CSV export.",
+
+  stack: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "PostgreSQL",
+    "Authentication",
+    "Vercel",
+  ],
+
+  context:
+    "A client preparing to start an independently operated business in Japan approached me with a need for a simple way to manage employee attendance. The client wanted employees to record their attendance daily while giving administrators an easy way to review attendance, overtime, clock-out times, and monthly working days for payroll preparation. The project is currently in the requirements and development stage.",
+
+  problem:
+    "The client needs a centralized way to understand employee attendance without manually reviewing and calculating individual records at the end of each month. Employees should only need to manage and view their own attendance, while administrators need visibility across the entire staff.",
+
+  discovery:
+    "I started by translating the client's high-level request into separate employee and administrator workflows. This revealed that the product was not simply a clock-in interface: it also needed role-based access, monthly aggregation, overtime visibility, employee-level details, and payroll-supporting data export.",
+
+  investigation:
+    "I broke the request down into user roles, core workflows, required data, business rules, and open questions. I mapped the employee flow from login to clock-in, clock-out, daily records, and monthly summaries, while the administrator flow focuses on staff-wide attendance, individual employee details, monthly totals, and CSV export. I also identified payroll and attendance rules that must be confirmed with the client before implementing calculation logic.",
+
+  decisions: [
+    "Separated employee and administrator experiences because each role requires different data visibility and permissions.",
+    "Defined clock-in/out, monthly attendance summaries, overtime visibility, administrator oversight, and CSV export as the core MVP scope.",
+    "Designed the system around structured attendance records so monthly totals can be calculated rather than entered manually.",
+    "Kept payroll calculations as an area requiring additional business-rule validation before treating them as authoritative.",
+    "Prioritized a mobile-friendly web application because employees need quick access to daily clock-in and clock-out actions.",
+  ],
+
+  solution: [
+    "Designed an employee dashboard for clock-in, clock-out, current work status, and recent attendance records.",
+    "Designed a monthly calendar showing normal workdays, overtime days, and days off.",
+    "Designed employee monthly summaries for working days, actual hours, and overtime.",
+    "Designed an administrator dashboard showing staff attendance and monthly workforce information.",
+    "Designed employee detail views for reviewing individual attendance and payroll-supporting information.",
+    "Included CSV export in the MVP plan to make attendance data easier to use during payroll preparation.",
+    "Defined role-based authorization so employees can access their own attendance while administrators can review staff-wide records.",
+  ],
+
+  contribution:
+    "I am responsible for translating the client's initial business request into product requirements, defining the MVP scope, designing the user flows and data model, planning the system architecture, and developing the application. I am also identifying ambiguous business rules with the client before implementing them rather than making assumptions in the software.",
+
+  results: [
+    "Translated an informal client request into a structured MVP specification.",
+    "Defined separate employee and administrator workflows and access requirements.",
+    "Designed the initial attendance, monthly summary, administrator, and payroll-supporting interfaces.",
+    "Identified unresolved attendance and payroll rules before implementation.",
+    "Development currently in progress.",
+  ],
+
+  businessImpact:
+    "The intended business value is to make monthly attendance review and payroll preparation easier by centralizing daily attendance records and automatically summarizing working days, hours, and overtime. Because the application has not yet been deployed in the client's business, no time savings or financial impact are claimed yet.",
+
+  lessons:
+    "This project is teaching me that client software development begins before implementation. A short request such as 'make attendance and payroll easier to manage' contains many hidden product and business decisions. Converting that request into user roles, workflows, permissions, data models, business rules, and a deliberately limited MVP is a core part of building useful software.",
+
+  futureFeatures: [
+  "Attendance correction requests with manager approval.",
+  "Shift scheduling and paid-leave management.",
+  "Multi-location support for businesses operating more than one workplace.",
+  "Payroll system integration to reduce manual payroll preparation.",
+  "Attendance anomaly detection and alerts for missing clock-outs, unusual overtime, or inconsistent records.",
+  ],
+},
+
+
+
 ];
 
 export function getProject(slug: string) {
