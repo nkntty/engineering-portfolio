@@ -19,6 +19,83 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+  slug: "neural-network-depth-frequency-trainability",
+
+  title: "Neural Network Trainability Research",
+
+  headline:
+    "Investigating how neural-network depth changes frequency-dependent trainability",
+
+  summary:
+    "An experimental machine-learning research project investigating how neural-network depth affects the ability and speed of gradient-based training to learn different frequency components under an approximately fixed parameter budget. The experimental phases are complete, while the literature review and full thesis are still in progress.",
+
+  stack: [
+    "Python",
+    "PyTorch",
+    "NumPy",
+    "Fourier Analysis",
+    "Neural Networks",
+    "Experimental Design",
+    "Statistical Analysis",
+  ],
+
+  context:
+    "Universal approximation results describe what neural networks can represent, but they do not by themselves explain which solutions gradient-based optimization can efficiently reach under finite parameter and training budgets. This research investigates whether reallocating a similar parameter budget from width toward depth changes frequency-dependent trainability.",
+
+  problem:
+    "Neural networks are known to exhibit spectral bias, typically learning lower-frequency components before higher-frequency ones. The question I investigated was more specific: under an approximately fixed parameter budget, how does changing network depth affect the probability and speed with which different frequencies can be learned?",
+
+  discovery:
+    "I designed an initial depth-by-frequency experiment using tanh multilayer perceptrons. Rather than comparing networks where deeper models simply had more parameters, I adjusted network width at each depth to keep the total number of trainable parameters close to 900. This allowed me to study the depth-width tradeoff under a roughly comparable parameter budget.",
+
+  investigation:
+    "In Phase 1, I trained networks with depths 1, 2, 3, 4, 6, and 8 on sinusoidal targets across 30 frequencies and 20 random seeds, producing 3,600 training runs. I defined an empirical trainability boundary using both a loss threshold and success probability across seeds. In Phase 2, I trained networks on a mixed-frequency target and projected predictions onto Fourier modes over training time to investigate how quickly individual frequency components were acquired.",
+
+  decisions: [
+    "Adjusted width across network depths to keep trainable parameter counts approximately comparable rather than allowing deeper networks to gain a large parameter-count advantage.",
+    "Evaluated each depth-frequency configuration across 20 random seeds instead of relying on a single initialization.",
+    "Defined trainability using a success probability across seeds rather than reporting only a single loss value.",
+    "Added a second experiment tracking Fourier-mode acquisition over time to investigate the learning dynamics behind the Phase 1 trainability boundary.",
+    "Kept the interpretation empirical and avoided treating the observed depth effect as proof of a causal mechanism.",
+  ],
+
+  solution: [
+    "Executed a depth × frequency sweep covering 30 target frequencies and six network depths.",
+    "Generated 3,600 Phase 1 training runs.",
+    "Measured success probability across random seeds and derived an empirical critical frequency for each depth.",
+    "Ran a second mixed-frequency experiment using low-, medium-, and high-frequency Fourier components.",
+    "Tracked Fourier-mode acquisition throughout training by projecting model predictions onto sine and cosine bases.",
+    "Compared acquisition time across network depths to determine whether the depth effect depended on target frequency.",
+  ],
+
+  contribution:
+    "I designed and executed the experiments, generated and analyzed the training data, defined the empirical trainability criterion, developed the Fourier-mode tracking experiment, and interpreted the results. The experimental work and working research summary are complete; the systematic literature review, robustness analysis, and full thesis writing remain in progress.",
+
+  results: [
+    "Completed 3,600 training runs in the depth × frequency experiment.",
+    "Observed the empirical critical frequency increase from 6 at depth 1 to 20 at depth 8 under the selected trainability criterion.",
+    "Found that low-frequency components were learned across all tested depths while higher-frequency acquisition showed substantially larger depth-dependent differences.",
+    "For the high-frequency ω=16 mode, depth 1 did not reach the selected threshold within 5,000 epochs, while depths 2, 4, and 8 reached it progressively earlier.",
+    "Generated 12,120 logged Fourier-mode observations in the second experimental phase.",
+  ],
+
+  businessImpact:
+    "This is a research project rather than a deployed business system, so it does not have a direct business-impact claim. Its value is experimental: it provides evidence that neural-network architecture can affect not only representational capacity but also which frequency components gradient-based optimization can learn efficiently within a finite training budget.",
+
+  futureFeatures: [
+    "Complete a systematic literature review and establish the precise novelty and positioning of the work.",
+    "Test the robustness of the critical-frequency result across alternative loss and success-probability thresholds.",
+    "Investigate optimizer, learning-rate, and activation-function sensitivity.",
+    "Perform additional statistical analysis on the existing experimental results.",
+    "Develop the research summary into a full master's-level thesis.",
+    "Investigate possible explanations involving optimization geometry, feature learning, or kernel/NTK spectra.",
+  ],
+
+  lessons:
+    "This project strengthened my understanding of experimental machine-learning research: controlling confounding variables, evaluating results across random seeds, defining measurable success criteria, separating empirical evidence from causal claims, and designing follow-up experiments when an initial result raises a deeper mechanistic question.",
+},
+
+  {
     slug: "ai-accounts-payable-automation",
 
     title: "AI-Powered Accounts Payable Automation",
@@ -229,7 +306,7 @@ export const projects: Project[] = [
   "Payroll system integration to reduce manual payroll preparation.",
   "Attendance anomaly detection and alerts for missing clock-outs, unusual overtime, or inconsistent records.",
   ],
-},
+ },
 
 
 
